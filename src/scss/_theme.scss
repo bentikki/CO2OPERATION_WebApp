@@ -1,0 +1,17 @@
+/* Theme variables */
+
+$mainColor: #41cd8c;            // Main color used for backgrounds and text.
+$secondaryColor: #073443;       // Secondary color used for backgrounds and text.
+$mainColorDark: #154d33;        // Main color darkened. Used for inactive buttons etc.
+
+$textColor: #ffffff;            // Color used for main text. Needs to be readable.
+$textColorMain: #41cd8c;        // Main text color used for menues.
+$textColorDark: #444444;        // Secondary color used for menues.
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Poppins:wght@600&family=Quicksand&display=swap');
+
+$mainFont: 'Poppins', sans-serif; // Main font used for text and menus.
+$secondaryFont: 'Kanit', arial;   // Secondary font used for popup text and stylish text.
+$inputFont: 'Quicksand', sans-serif;   // Input font used for input fields.
+
+$textShadow: 0px 0px 13px rgba(0, 0, 0, 0.85);

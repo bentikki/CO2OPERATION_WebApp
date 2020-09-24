@@ -1,0 +1,15 @@
+@import 'theme';
+
+.register-car-heading {
+    color: $secondaryColor;
+}
+
+.register-car-buttons {
+    margin-top: 10vh;
+}
+.register-car-buttons .btn{
+    width: 48%;
+}
+.register-car-buttons .btn:nth-child(2){
+    margin-left: 4%;
+}

@@ -1,0 +1,20 @@
+<div class="menu-bar-container">
+    <div class="row">
+        <div class="col-6">
+            <div class="menu-item" [ngClass]="{'active' : Page == 'home'}">
+                <mat-icon>home</mat-icon>
+                <span class="menu-text">
+                    Dit Aftryk
+                </span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="menu-item" [ngClass]="{'active' : Page == 'stats'}">
+                <mat-icon>public</mat-icon>
+                <span class="menu-text">
+                    Statistik
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

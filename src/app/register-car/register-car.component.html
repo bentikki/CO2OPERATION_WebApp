@@ -1,0 +1,23 @@
+<div class="row register-page">
+    <app-register-heading [heading]="Heading" [icon]="Icon"></app-register-heading>
+
+
+    <div class="popup-container">
+        
+        <div class="col-12">
+            <div class="register-car-heading">
+                <h3>Har du en bil?</h3>
+            </div>
+            <div class="register-car-buttons">
+                <button type="button" class="btn btn-secondary" routerLink="/home">Nej</button>
+                <button type="button" class="btn btn-primary" routerLink="/register/license">Ja</button>
+            </div>
+        </div>
+        
+    </div>
+
+    <app-register-bar [prev]="PrevPage" [next]="NextPage"></app-register-bar>
+    
+
+    
+</div>

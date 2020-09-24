@@ -1,1 +1,101 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'scss/theme';
+
+html,body{height:100%;}
+
+body {
+    background-color: $secondaryColor;
+    font-family: $mainFont;
+}
+
+.form-control, .form-control:focus {
+    background-color: transparent;
+    border:none;
+    border-bottom:1px solid $mainColor;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    color:$textColorDark;
+    font-family: $inputFont;
+    font-size: 18px;
+    padding: 8px 4px;
+}
+.form-control:focus {
+
+    -webkit-box-shadow: 0px 7px 15px -10px rgba(126, 239, 104, 0.8);
+    -moz-box-shadow: 0px 7px 15px -10px rgba(126, 239, 104, 0.8);
+    box-shadow: 0px 7px 15px -10px rgba(126, 239, 104, 0.8);
+    outline: 0 none;
+}
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color:$textColorDark;
+    opacity: 1; /* Firefox */
+}
+.form-control:-ms-input-placeholder, .form-control::-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:$textColorDark;
+}
+.form-group label {
+    font-family: $inputFont;
+    color:$textColorDark;
+    font-size: 18px;
+}
+
+//Button styles
+.btn {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border:none;
+}
+.btn-primary {
+    background-color: $mainColor;
+}
+.btn-secondary {
+    background-color: $secondaryColor;
+}
+
+//Popup container
+.popup-container {
+    width: 100%;
+    background-color:$textColor;
+    padding: 30px 20px;
+
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    -webkit-box-shadow: 0px -8px 14px 0px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px -8px 14px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px -8px 14px 0px rgba(0,0,0,0.5);
+}
+
+//Register page
+.register-page {
+
+    .header-text h2{
+        font-size: 28px;
+        color: $textColor;
+        padding: 5vw 0;
+        text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.85);
+    }
+
+    .icon-container mat-icon{
+        font-size: 25vh;
+        width: 100%;
+        text-align: center;
+        color: $mainColor;
+    }
+
+    .upper {
+        height: 40vh;
+        width: 100vw;
+    }
+
+    .popup-container {
+        height: 60vh;
+        min-height: 80px;
+    }
+
+    .form-group {
+        margin-bottom: 5vh;
+    }
+
+
+
+}

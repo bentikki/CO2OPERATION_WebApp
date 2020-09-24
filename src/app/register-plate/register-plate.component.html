@@ -1,0 +1,23 @@
+<div class="row register-page">
+    <app-register-heading [heading]="Heading" [icon]="Icon"></app-register-heading>
+
+
+    <div class="popup-container">
+        <div class="register-form">
+            <form autocomplete="off">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="registerLicense" aria-describedby="License Plate" placeholder="Nummerplade">
+                </div>
+                <div class="form-group">
+                    <label for="registerCarmodel">Bil model</label>
+                    <input type="text" class="form-control" id="registerCarmodel" aria-describedby="Car Model" placeholder="XXXXXXXX">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <app-register-bar [prev]="PrevPage" [next]="NextPage"></app-register-bar>
+    
+
+    
+</div>
