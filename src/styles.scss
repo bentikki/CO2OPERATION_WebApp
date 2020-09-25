@@ -51,15 +51,18 @@ body {
 .btn-secondary {
     background-color: $secondaryColor;
 }
+.btn-dark {
+    background-color: $mainColorDark;
+}
 
 //Popup container
 .popup-container {
     width: 100%;
     background-color:$textColor;
     padding: 30px 20px;
-
     border-top-left-radius: 14px;
     border-top-right-radius: 14px;
+
     -webkit-box-shadow: 0px -8px 14px 0px rgba(0,0,0,0.5);
     -moz-box-shadow: 0px -8px 14px 0px rgba(0,0,0,0.5);
     box-shadow: 0px -8px 14px 0px rgba(0,0,0,0.5);

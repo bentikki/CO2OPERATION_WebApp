@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public showTravelStats : boolean = true;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public showTravel() : void {
+    if(this.showTravelStats){
+      this.showTravelStats = false;
+    }
+    else{
+      this.showTravelStats = true;
+    }
   }
 
 }

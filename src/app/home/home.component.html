@@ -8,6 +8,24 @@
         <div class="carbon-counter">
             <span>200 kg</span>
         </div>
+        <div class="carbon-date">
+            <span>16-09-2020</span>
+        </div>
+    </div>
+
+    <div class="carbon-select-container">
+        <span>Vis aftryk for</span>
+        <div class="btn-group col-8 offset-2" role="group" aria-label="Select footprint">
+            <button type="button" class="btn btn-primary">I dag</button>
+            <button type="button" class="btn btn-dark">Altid</button>
+        </div>
+    </div>
+
+    <div class="journey-list-container popup-container">
+        <span class="heading" (click)="showTravel()">Seneste rejser</span>
+
+        <app-show-travel *ngIf="showTravelStats"></app-show-travel>
+
     </div>
 
     <app-menu-bar [Page]="'home'"></app-menu-bar>

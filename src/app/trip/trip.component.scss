@@ -1,0 +1,26 @@
+@import 'theme';
+
+.trip {
+    margin:15px 0;
+    min-height: 5vh;
+    font-size: 16px;
+
+    .icon mat-icon{
+        font-size: 5vh;
+        color: $mainColor;
+    }
+
+    .info {
+        .time {
+            font-size: 0.8em;
+            color: $secondaryColor;
+            opacity: 0.6;
+        }
+    }
+
+    .carbon {
+        padding-right: 0px;
+        font-size: 1.2em;
+        text-align: end;
+    }
+}

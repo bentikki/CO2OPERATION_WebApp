@@ -13,6 +13,8 @@ import { RegisterPlateComponent } from './register-plate/register-plate.componen
 import { HomeComponent } from './home/home.component';
 import { MenuBarComponent } from './menu-bar/menu-bar.component';
 import { CarbonIconComponent } from './carbon-icon/carbon-icon.component';
+import { ShowTravelComponent } from './show-travel/show-travel.component';
+import { TripComponent } from './trip/trip.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CarbonIconComponent } from './carbon-icon/carbon-icon.component';
     RegisterPlateComponent,
     HomeComponent,
     MenuBarComponent,
-    CarbonIconComponent
+    CarbonIconComponent,
+    ShowTravelComponent,
+    TripComponent
   ],
   imports: [
     BrowserModule,
