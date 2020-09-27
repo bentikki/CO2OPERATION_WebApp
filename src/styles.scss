@@ -39,6 +39,11 @@ body {
     font-size: 18px;
 }
 
+.invalid-feedback {
+    display: block;
+    position: absolute;
+}
+
 //Button styles
 .btn {
     padding-top: 10px;

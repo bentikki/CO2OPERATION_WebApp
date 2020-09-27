@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { first } from 'rxjs/operators';
+import { Trip } from '../models/trip';
+
+import { TripsService } from '../_services/trips.service';
+
 
 @Component({
   selector: 'app-show-travel',
@@ -7,9 +12,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowTravelComponent implements OnInit {
 
-  constructor() { }
+  public Trips : Trip[] = [];
+
+  constructor(
+    private tripsService : TripsService) 
+    {  
+    }
 
   ngOnInit(): void {
+
+    this.tripsService.getAll()
+      .pipe(first())
+      .subscribe(trips => this.Trips = trips);
+
   }
 
 }

@@ -5,9 +5,9 @@
                 <span>17-09-2020</span>
             </div>
             <div class="all-trips">
-                
-                <app-trip></app-trip>
-                <app-trip></app-trip>
+
+                <app-trip *ngFor="let trip of Trips" [trip]="trip"></app-trip>
+
                 
             </div>
         </div>

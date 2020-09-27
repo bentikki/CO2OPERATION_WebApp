@@ -5,22 +5,34 @@
     <div class="popup-container">
         
         <div class="register-form">
-            <form autocomplete="off">
+            <form autocomplete="off" [formGroup]="Form">
                 <div class="form-group">
-                  <input type="email" class="form-control" id="registerEmail" aria-describedby="email" placeholder="E-mail">
+                    <input type="email" formControlName="email" class="form-control" id="registerEmail" aria-describedby="email" placeholder="E-mail">
+                    <div *ngIf="f.email.errors && !f.email.pristine" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">E-mail skal udfyldes</div>
+                        <div *ngIf="f.email.errors.email">E-mail er ikke udfyldt korrekt</div>
+                        <div *ngIf="f.email.errors.uniqueUsername">E-mail findes allerede i systemet</div>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="registerPassword" aria-describedby="password" placeholder="Password">
+                    <input type="password" formControlName="password" class="form-control" id="registerPassword" aria-describedby="password" placeholder="Password">
+                    <div *ngIf="f.password.errors && !f.password.pristine" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Et password skal vælges</div>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" id="registerPasswordRepeat" aria-describedby="passwordRepeat" placeholder="Gentag password">
+                    <input type="password" formControlName="passwordRepeat" class="form-control" id="registerPasswordRepeat" aria-describedby="passwordRepeat" placeholder="Gentag password">
+                    <div *ngIf="f.passwordRepeat.errors && !f.password.pristine" class="invalid-feedback">
+                        <div *ngIf="f.passwordRepeat.errors.required">Gentag venligst password</div>
+                        <div *ngIf="f.passwordRepeat.errors.mustMatch">Password matcher ikke</div>
+                    </div>
                 </div>
             </form>
         </div>
         
     </div>
 
-    <app-register-bar [prev]="PrevPage" [next]="NextPage"></app-register-bar>
+    <app-register-bar *ngIf="Form.valid" [prev]="PrevPage" [next]="NextPage"></app-register-bar>
     
 
     
