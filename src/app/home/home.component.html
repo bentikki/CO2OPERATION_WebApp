@@ -1,6 +1,7 @@
 <div class="row">
     <div class="home-heading">
-        <span class="heading">Hej {{user.email}} - Her er dit CO2 aftryk</span>
+        <span class="heading">Hej {{user.username}} - Her er dit CO2 aftryk</span>
+        <mat-icon class="float-right" (click)="logout()">exit_to_app</mat-icon>
     </div>
 
     <div class="col-12 home-carbon-container">

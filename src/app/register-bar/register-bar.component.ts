@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-register-bar',
@@ -8,10 +8,17 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RegisterBarComponent implements OnInit {
   @Input() prev: String;
   @Input() next: String;
-
+  @Input() allowNext: boolean;
+  
+  @Output() onNext: EventEmitter<any> = new EventEmitter();
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  nextWasClicked(): void {
+    this.onNext.emit();
   }
 
 }

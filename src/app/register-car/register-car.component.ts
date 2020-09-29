@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SignupService } from '../_services/signup.service';
 
 @Component({
   selector: 'app-register-car',
@@ -13,16 +14,22 @@ export class RegisterCarComponent implements OnInit {
   Heading : String;
   Icon : String;
 
-  constructor() 
+  constructor(
+    private signupService : SignupService
+  ) 
   { 
     this.Heading = "Køretøj";
     this.Icon = "directions_car";
 
     this.PrevPage = "register";
-    this.NextPage = "register/car";
+    this.NextPage = "register/car";    
   }
 
   ngOnInit(): void {
+  }
+
+  carYesNo(haveCar : boolean): void{
+    this.signupService.registerCar(haveCar);
   }
 
 }

@@ -17,6 +17,7 @@ import { ShowTravelComponent } from './show-travel/show-travel.component';
 import { TripComponent } from './trip/trip.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ValidateUsername } from './_validators/uniqueUser.validator';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ValidateUsername],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 <div class="col-12">
     <div class="reg-next-prev">
         <a class="btn-link" routerLink="/{{prev}}">Tilbage</a>
-        <a class="btn-link" routerLink="/{{next}}">Næste</a>
+        <a class="btn-link"
+            *ngIf="allowNext"
+            (click)="nextWasClicked()">Næste</a>
     </div>
 </div>

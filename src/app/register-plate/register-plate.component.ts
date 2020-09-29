@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SignupService } from '../_services/signup.service';
 
 @Component({
   selector: 'app-register-plate',
@@ -13,7 +15,13 @@ export class RegisterPlateComponent implements OnInit {
   Heading : String;
   Icon : String;
 
-  constructor() 
+  Form: FormGroup;
+  get f() { return this.Form.controls; }
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private signupService : SignupService
+  ) 
   { 
     this.Heading = "Registrer køretøj";
     this.Icon = "directions_car";
@@ -23,6 +31,19 @@ export class RegisterPlateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.Form = this.formBuilder.group({
+        model: ['', Validators.required]
+      },
+    );
+
+  }
+
+  saveInfo(){
+    if(this.Form.valid){
+      this.signupService.registerPlate(this.f.model.value);
+    }
+
   }
 
 }

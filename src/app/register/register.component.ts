@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { map } from 'rxjs/operators';
 import { SignupService } from '../_services/signup.service';
 import { ComparePassword } from '../_validators/comparepassword.validator'
-import { uniqueUsernameValidator, UniqueUsernamceValidatorDirective } from '../_validators/uniqueUser.validator'
+import { ValidateUsername } from '../_validators/uniqueUser.validator'
 
 @Component({
   selector: 'app-register',
@@ -33,36 +34,31 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.Form = this.formBuilder.group({
-      email: ['', 
+        email: ['', 
+          [
+            Validators.required,
+            Validators.email
+          ]
+        ],
+        password: ['', Validators.required],
+        passwordRepeat: ['', Validators.required]
+      },
+      {
+        validator: 
         [
-          Validators.required,
-          Validators.email,
-          // uniqueUsernameValidator(this.signupService)
+          ComparePassword("password", "passwordRepeat"),
         ]
-      ],
-      password: ['', Validators.required],
-      passwordRepeat: ['', Validators.required]
-    },
-    {
-      validator: 
-      [
-        ComparePassword("password", "passwordRepeat"),
-      ]
 
+      }
+    );
+
+  }
+
+  saveInfo(){
+    if(this.Form.valid){
+      this.signupService.registerPage(this.f.email.value, this.f.password.value)
     }
-  );
-
-    console.log(this.Form);
+    
   }
 
 }
-
-export function ValidateUniqueEmail(control: AbstractControl) {
-
-  if (control.value == "test@mail.com") {
-    return { emailNotUnique: true };
-  }
-  return null;
-
-}
-

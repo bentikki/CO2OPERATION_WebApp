@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('userIDtest'));
+    console.log(this.userService.getUser);
   }
 
   public showTravel() : void {
@@ -31,4 +31,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  public logout(){
+    console.log("logging out");
+    this.userService.logout();
+  }
 }

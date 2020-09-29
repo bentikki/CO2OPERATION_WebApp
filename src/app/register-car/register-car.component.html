@@ -9,14 +9,14 @@
                 <h3>Har du en bil?</h3>
             </div>
             <div class="register-car-buttons">
-                <button type="button" class="btn btn-secondary" routerLink="/home">Nej</button>
-                <button type="button" class="btn btn-primary" routerLink="/register/license">Ja</button>
+                <button type="button" class="btn btn-secondary" routerLink="/home" (click)="carYesNo(false)">Nej</button>
+                <button type="button" class="btn btn-primary" routerLink="/register/license" (click)="carYesNo(true)">Ja</button>
             </div>
         </div>
         
     </div>
 
-    <app-register-bar [prev]="PrevPage" [next]="NextPage"></app-register-bar>
+    <app-register-bar [prev]="PrevPage" [next]="NextPage" ></app-register-bar>
     
 
     
