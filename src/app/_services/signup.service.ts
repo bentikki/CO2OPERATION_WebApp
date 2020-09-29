@@ -65,14 +65,21 @@ export class SignupService {
     console.log("sending signup");
 
     // Create user api call
-    let url = 'https://5f70c87cbdb178001633c35e.mockapi.io/api/createUser';
+    //let url = 'https://5f70c87cbdb178001633c35e.mockapi.io/api/createUser';
+    let url = 'https://172.16.21.44/api/login/CreateUser';
+    //https://172.16.21.44/api/login/CreateUser/?userMail=zbcanols21@zbc.dk&Password=Kode123!&haveCar=true&carModel=BMW
 
 
+    this.http.get<any>('http://172.16.21.44/api/login/login')
+      .subscribe( data => {
+        console.log(data);
+      })
+    //http://172.16.21.44/api/login/login
 
     return this.http.post<SignUpModel>(url, 
       { 
-        email: this._signUpModel.email,
-        password: this._signUpModel.password,
+        userMail: this._signUpModel.email,
+        Password: this._signUpModel.password,
         haveCar: this._signUpModel.haveCar,
         carModel: this._signUpModel.carModel 
       })
