@@ -8,11 +8,13 @@ import { RegisterPlateComponent } from './register-plate/register-plate.componen
 import { HomeComponent } from './home/home.component';
 import { AuthGuard } from './_services/auth.guard';
 import { NewUserGuard } from './_services/newuser.guard';
+import { StatisticComponent } from './statistic/statistic.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent, canActivate: [NewUserGuard] },
   { path: 'login', component: LoginComponent, canActivate: [NewUserGuard] },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'statistic', component: StatisticComponent, canActivate: [AuthGuard] },
 
   { path: 'register', component: RegisterComponent, canActivate: [NewUserGuard] },
   { path: 'register/car', component: RegisterCarComponent, canActivate: [NewUserGuard] },

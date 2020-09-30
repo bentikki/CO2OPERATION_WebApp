@@ -1,0 +1,95 @@
+@import 'theme';
+
+.home-heading {
+    color: $textColor;
+    padding-top: 5vh;
+    padding-left: 5vw;
+    font-size: 2.7vh;
+    text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.85);
+}
+
+.home-carbon-container {
+    font-family: $secondaryFont;
+    text-align: center;
+    padding-top: 8vh;
+    color: $textColor;
+    text-shadow: $textShadow;
+
+    .carbon-counter {
+        font-size: 7vh;
+    }
+    .carbon-date {
+        margin-top: 20px;
+        font-size: 2.3vh;
+    }
+}
+
+.carbon-select-container {
+    width: 100%;
+    margin-top: 8vh;
+
+    > span {
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: $textColor;
+        text-shadow: $textShadow;
+        font-size: 14px;
+
+    }
+    .btn-group {
+        margin-top: 10px;
+        text-align: center;
+
+        .btn {
+            border:1px solid black;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+    }
+}
+
+.journey-list-container {
+    position: fixed;
+    bottom: 10vh;
+    padding-top: 15px; 
+    padding-bottom: 20px;
+
+
+    .heading {
+        width: 100%;
+        display: block;
+        text-align: center;
+        font-size: 16px;
+    }
+}
+
+
+.stats-container {
+    height: 32vh;
+    margin-left: 10vw;
+    .stat{
+        width: 20vw;
+        margin: 0 8vw;
+        margin-top: 4vh;
+        float: left;
+        .bar-container {
+            position: relative;
+            height: 30vh;
+            width: 8vw;
+            margin-left: 6vw;
+
+            .bar {
+                background-color: $mainColor;
+                position: relative;                
+            }
+        }
+        .text {
+            width: 20vw;
+            text-align: center;
+            span {
+                display: block;
+            }
+        }
+    }
+}

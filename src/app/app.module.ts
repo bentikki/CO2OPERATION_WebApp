@@ -18,6 +18,7 @@ import { TripComponent } from './trip/trip.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ValidateUsername } from './_validators/uniqueUser.validator';
+import { StatisticComponent } from './statistic/statistic.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ValidateUsername } from './_validators/uniqueUser.validator';
     MenuBarComponent,
     CarbonIconComponent,
     ShowTravelComponent,
-    TripComponent
+    TripComponent,
+    StatisticComponent
   ],
   imports: [
     BrowserModule,

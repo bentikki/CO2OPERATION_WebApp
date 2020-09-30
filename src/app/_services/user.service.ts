@@ -16,8 +16,6 @@ export class UserService {
   public user: Observable<User>;
   
   public get getUser(): User {
-    
-    console.log(this.userSubject.value);
     return this.userSubject.value;
   }
 
@@ -34,15 +32,19 @@ export class UserService {
   public login(email : string, password : string){
 
     //Url for login authorization. With temp url for testing.
-    let url = 'https://jsonplaceholder.typicode.com/users'; 
-    var encrypted = this.encryptService.set(password);
+    let url = 'https://172.16.21.44/api/login/login';
+    
+    url += '?username=' + email;
+    url += '&password=' + password;
 
-    return this.http.post<User>(url, { email, encrypted })
+    // url += '?username=' + 'andi0137@zbc.dk';
+    // url += '&password=' + 'Kode1234!';
+    //var encrypted = this.encryptService.set(password);
+
+    return this.http.get<User>(url)
       .pipe(map(user => {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
-          if(user.email == "fail@fail.com"){ // Temp. Must be false if wrong credentials. 
-            return false;
-          }
+          console.log('user');
+          console.log(user);
           
           // Saves user object in session. 
           localStorage.setItem('user', JSON.stringify(user));

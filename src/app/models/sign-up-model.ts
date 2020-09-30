@@ -37,5 +37,23 @@ export class SignUpModel {
     }
     
     
+    private _userLat : string;
+    public get userLat() : string {
+        return this._userLat;
+    }
+    public set userLat(v : string) {
+        this._userLat = v;
+    }
+
+    
+    private _userLng : string;
+    public get userLng() : string {
+        return this._userLng;
+    }
+    public set userLng(v : string) {
+        this._userLng = v;
+    }
+    
+    
 
 }

@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="home-heading">
+        <span class="heading">Statistik</span>
+    </div>
+
+    <div class="col-12 home-carbon-container">
+        <app-carbon-icon></app-carbon-icon>
+        <div class="stats-container">
+            <div class="stat">
+                <div class="bar-container">
+                    <div class="bar" style="height: 80%;top:20%"></div>
+                </div>
+                <div class="text">
+                    <span>Bruger</span>
+                    <span>80 kg</span>
+                </div>
+            </div>
+
+            <div class="stat">
+                <div class="bar-container">
+                    <div class="bar" style="height: 40%;top:60%"></div>
+                </div>
+                <div class="text">
+                    <span>Verden</span>
+                    <span>50 kg</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carbon-select-container">
+        <span>Vis aftryk for</span>
+        <div class="btn-group col-8 offset-2" role="group" aria-label="Select footprint">
+            <button type="button" class="btn btn-primary">I dag</button>
+            <button type="button" class="btn btn-dark">Altid</button>
+        </div>
+    </div>
+
+    <app-menu-bar [Page]="'stats'"></app-menu-bar>
+
+</div>
