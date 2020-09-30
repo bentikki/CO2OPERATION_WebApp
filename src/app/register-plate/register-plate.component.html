@@ -6,7 +6,7 @@
         <div class="register-form">
             <form autocomplete="off" [formGroup]="Form">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="registerLicense" aria-describedby="License Plate" placeholder="Nummerplade">
+                  <input type="text" (keyup)="checkLicense($event)" formControlName="license" class="form-control" id="registerLicense" aria-describedby="License Plate" placeholder="Nummerplade">
                 </div>
                 <div class="form-group">
                     <label for="registerCarmodel">Bil model</label>

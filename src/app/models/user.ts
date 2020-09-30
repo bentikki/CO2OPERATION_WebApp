@@ -1,9 +1,8 @@
 export class User {
 
-    UserID: number;
+    Id: number;
     name: string;
     email: string;
-
     
     private _username : string;
     public get username() : string {

@@ -1,3 +1,5 @@
+import { LicenseInfo } from './licenseinfo';
+
 export class SignUpModel {
 
     
@@ -54,6 +56,6 @@ export class SignUpModel {
         this._userLng = v;
     }
     
-    
+    licenseInfo : LicenseInfo;
 
 }

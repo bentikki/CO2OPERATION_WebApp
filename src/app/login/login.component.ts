@@ -44,24 +44,36 @@ export class LoginComponent implements OnInit {
       //Invalid data has been entered
       return;
     }
+
     
     this.accountService.login(this.f.email.value, this.f.password.value)
-      .pipe(first())
-      .subscribe(
-        (data) => {
-          if(data){
-            this.router.navigate(['/home']);
-          }
-          else{
-            // Wrong credentials entered.
-            console.log("Wrong credentials");
-          }
-        },
-        (error) => {
-          //An unexpected error has occured. Eg. an connection issue. 
-          console.log("An error occured login.component");
+      .subscribe(userData => {
+        if(userData){
+          this.router.navigate(['/home?userID=' + userData.Id]);
         }
-      );
+        else{
+          // An error occured cant login.
+          console.log("An error occured. Cannot log in.")
+        }
+      })
+
+    // this.accountService.login(this.f.email.value, this.f.password.value)
+    //   .pipe(first())
+    //   .subscribe(
+    //     (data) => {
+    //       if(data){
+    //         this.router.navigate(['/home?userID='+ data.Id]);
+    //       }
+    //       else{
+    //         // Wrong credentials entered.
+    //         console.log("Wrong credentials");
+    //       }
+    //     },
+    //     (error) => {
+    //       //An unexpected error has occured. Eg. an connection issue. 
+    //       console.log("An error occured login.component");
+    //     }
+    //   );
   }
 
 }
