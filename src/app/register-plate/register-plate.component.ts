@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignupService } from '../_services/signup.service';
+import { LicenseplateService } from '../_services/licenseplate.service';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { first, map } from 'rxjs/operators';
+import { LicenseInfo } from '../models/licenseinfo';
+
 
 @Component({
   selector: 'app-register-plate',
@@ -18,9 +23,12 @@ export class RegisterPlateComponent implements OnInit {
   Form: FormGroup;
   get f() { return this.Form.controls; }
 
+  private licenseInfo: LicenseInfo;
+
   constructor(
     private formBuilder: FormBuilder,
-    private signupService : SignupService
+    private signupService : SignupService,
+    private licenseService: LicenseplateService
   ) 
   { 
     this.Heading = "Registrer køretøj";
@@ -33,7 +41,8 @@ export class RegisterPlateComponent implements OnInit {
   ngOnInit(): void {
 
     this.Form = this.formBuilder.group({
-        model: ['', Validators.required]
+        model: ['', Validators.required],
+        license: ['', Validators.required]
       },
     );
 
@@ -41,9 +50,26 @@ export class RegisterPlateComponent implements OnInit {
 
   saveInfo(){
     if(this.Form.valid){
-      this.signupService.registerPlate(this.f.model.value);
+      this.signupService.registerPlate(this.licenseInfo);
+    }
+  }
+
+  checkLicense(e){
+    const inputVal = e.target.value.replace(/\s/g, "");
+
+    if(inputVal.length == 7){
+
+      console.log("Reached 7");
+      
+      this.licenseService.getLicenseInfo(inputVal)
+        .pipe(first())
+        .subscribe(data => {
+          this.licenseInfo = data;
+          this.Form.controls['model'].setValue(this.licenseInfo.model);
+        });
     }
 
   }
+  
 
 }

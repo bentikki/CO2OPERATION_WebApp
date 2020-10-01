@@ -5,6 +5,7 @@ import { SignUpModel } from '../models/sign-up-model';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
 import { EncrDecrService } from './encr-decr.service';
+import { LicenseInfo } from '../models/licenseinfo';
 
 @Injectable({
   providedIn: 'root'
@@ -59,10 +60,9 @@ export class SignupService {
     }
   }
 
-  public registerPlate(modelName: string){
-    this._signUpModel.carModel = modelName;
+  public registerPlate(licenseInfo: LicenseInfo){
+    this._signUpModel.licenseInfo = licenseInfo;
     
-
     if(this._signUpModel.haveCar){
       this.createSignup();
     }
@@ -72,47 +72,46 @@ export class SignupService {
   
 
   private createSignup(){
-    console.log("sending signup");
-    console.log(this._signUpModel);
+
     // Create user api call
-    //let url = 'https://5f70c87cbdb178001633c35e.mockapi.io/api/createUser';
-    let url = 'https://172.16.21.44/api/login/CreateUser';
-    //let url = 'https://172.16.21.44/api/login/CreateUser/?userMail=zbcanols21@zbc.dk&Password=Kode123!&haveCar=true&carModel=BMW';
-    //https://172.16.21.44/api/login/CreateUser/?userMail=zbcanols21@zbc.dk&Password=Kode123!&haveCar=true&carModel=BMW
+    let url = 'https://172.16.21.44/api/UserPortal/CreateUser/';
 
-    // this.http.get<any>('https://172.16.21.44/api/login/login')
-    //   .subscribe( data => {
-    //     console.log(data);
-    //   })
 
-    url += '?userMail=' + this._signUpModel.email;
-    url += '&Password=' + this._signUpModel.password;
+    url += '?username=' + this._signUpModel.email;
+    url += '&password=' + this._signUpModel.password;
     url += '&haveCar=' + this._signUpModel.haveCar;
-    url += '&carModel=' + this._signUpModel.carModel;
+    if(this._signUpModel.haveCar){
+      url += '&carModel=' + this._signUpModel.licenseInfo.model;
+      url += '&emission=' + this._signUpModel.licenseInfo.carbonFootprint;
+    }
     url += '&lat=' + this._signUpModel.userLat;
     url += '&lon=' + this._signUpModel.userLng;
 
-    //http://172.16.21.44/api/login/login
-
-    // { 
-    //   userMail: this._signUpModel.email,
-    //   Password: this._signUpModel.password,
-    //   haveCar: this._signUpModel.haveCar,
-    //   carModel: this._signUpModel.carModel,
-    //   latitude: this._signUpModel.userLat,
-    //   longitude: this._signUpModel.userLng,
-    // }
-
-    return this.http.get<any>(url)
+    console.log("Send in to URL:");
+    console.log(url);
+    return this.http.get<boolean>(url)
       .subscribe(data => {
-          console.log('data');
+          console.log('User signup data');
           console.log(data);
-          this.userService.login(this._signUpModel.email, this._signUpModel.password)
-            .subscribe(userData => {
-              if(userData){
-                this.router.navigate(['/home?userID=' + userData.UserID]);
-              }
-            })
+          if(data){
+            this.userService.login(this._signUpModel.email, this._signUpModel.password)
+              .subscribe(userData => {
+                if(userData){
+                  //this.router.navigate(['/home?userID=' + userData.Id]);
+                  //this.router.navigate(['/home'], { queryParams: { userID: userData.Id } });
+                  this.router.navigate(['/home'], { queryParams: { userID: userData.Id } });
+                }
+                else{
+                  // User login failed.
+                  console.log("Login failed.") 
+                }
+              })
+          }
+          else{
+            // User signup failed.
+            console.log("Signup failed.") 
+          }
+          
       })
 
   }

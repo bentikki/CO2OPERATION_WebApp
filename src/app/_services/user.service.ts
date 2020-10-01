@@ -32,24 +32,25 @@ export class UserService {
   public login(email : string, password : string){
 
     //Url for login authorization. With temp url for testing.
-    let url = 'https://172.16.21.44/api/login/login';
+    let url = 'https://172.16.21.44/api/UserPortal/login';
     
     url += '?username=' + email;
     url += '&password=' + password;
 
-    // url += '?username=' + 'andi0137@zbc.dk';
-    // url += '&password=' + 'Kode1234!';
-    //var encrypted = this.encryptService.set(password);
-
     return this.http.get<User>(url)
       .pipe(map(user => {
-          console.log('user');
+          console.log('user login');
           console.log(user);
           
-          // Saves user object in session. 
-          localStorage.setItem('user', JSON.stringify(user));
-          this.userSubject.next(user);
-          return user;
+          if(user.Id != 0){
+            // Saves user object in session. 
+            localStorage.setItem('user', JSON.stringify(user));
+            this.userSubject.next(user);
+            return user;
+          }
+          else{
+            return false;
+          } 
     }));
 
   }
