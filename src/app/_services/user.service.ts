@@ -46,6 +46,7 @@ export class UserService {
             // Saves user object in session. 
             localStorage.setItem('user', JSON.stringify(user));
             this.userSubject.next(user);
+            console.log("userid." + user.Id);
             return user;
           }
           else{
