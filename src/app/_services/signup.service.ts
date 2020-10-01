@@ -82,7 +82,7 @@ export class SignupService {
     url += '&haveCar=' + this._signUpModel.haveCar;
     if(this._signUpModel.haveCar){
       url += '&carModel=' + this._signUpModel.licenseInfo.model;
-      //url += '&emission=' + this._signUpModel.licenseInfo.carbonFootprint;
+      url += '&emission=' + this._signUpModel.licenseInfo.carbonFootprint;
     }
     url += '&lat=' + this._signUpModel.userLat;
     url += '&lon=' + this._signUpModel.userLng;
