@@ -77,11 +77,13 @@ export class SignupService {
     let url = 'https://172.16.21.44/api/UserPortal/CreateUser/';
 
 
-    url += '?userMail=' + this._signUpModel.email;
-    url += '&Password=' + this._signUpModel.password;
+    url += '?username=' + this._signUpModel.email;
+    url += '&password=' + this._signUpModel.password;
     url += '&haveCar=' + this._signUpModel.haveCar;
-    url += '&carModel=' + this._signUpModel.licenseInfo.model;
-    //url += '&emission=' + this._signUpModel.licenseInfo.carbonFootprint;
+    if(this._signUpModel.haveCar){
+      url += '&carModel=' + this._signUpModel.licenseInfo.model;
+      //url += '&emission=' + this._signUpModel.licenseInfo.carbonFootprint;
+    }
     url += '&lat=' + this._signUpModel.userLat;
     url += '&lon=' + this._signUpModel.userLng;
 
@@ -95,7 +97,9 @@ export class SignupService {
             this.userService.login(this._signUpModel.email, this._signUpModel.password)
               .subscribe(userData => {
                 if(userData){
-                  this.router.navigate(['/home?userID=' + userData.Id]);
+                  //this.router.navigate(['/home?userID=' + userData.Id]);
+                  //this.router.navigate(['/home'], { queryParams: { userID: userData.Id } });
+                  this.router.navigate(['/home'], { queryParams: { userID: userData.Id } });
                 }
                 else{
                   // User login failed.

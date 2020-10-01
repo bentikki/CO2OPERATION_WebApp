@@ -49,7 +49,10 @@ export class LoginComponent implements OnInit {
     this.accountService.login(this.f.email.value, this.f.password.value)
       .subscribe(userData => {
         if(userData){
-          this.router.navigate(['/home?userID=' + userData.Id]);
+          // this.router.navigate(['/home?userID=' + userData.Id]);
+          //this.router.navigate(['/home?userID=' + userData.Id]);
+          this.router.navigate(['/home'], { queryParams: { userID: userData.Id } });
+         
         }
         else{
           // An error occured cant login.
