@@ -19,6 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ValidateUsername } from './_validators/uniqueUser.validator';
 import { StatisticComponent } from './statistic/statistic.component';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { StatisticComponent } from './statistic/statistic.component';
     AppRoutingModule,
     MatIconModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GraphQLModule
   ],
   providers: [ValidateUsername],
   bootstrap: [AppComponent]
