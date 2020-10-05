@@ -1,0 +1,76 @@
+schema {
+  query: Query
+}
+
+type Car {
+  averageCo2: Int!
+  id: ID!
+  model: String
+  userId: Int!
+}
+
+type CarbonHistroy {
+  day: Date
+  totalFootPrint: Decimal
+  userId: Int!
+}
+
+type Query {
+  carbonHistories: [CarbonHistroy]
+  carbonHistoriesByUserId(userId: Int!): CarbonHistroy!
+  "Query for getting car by car id"
+  carById(id: Int!): Car!
+  "Query for getting all cars."
+  cars: [Car!]!
+  carsByUserId(userId: Int!): [Car]
+  transportMethodById(id: Int!): TransportMethods
+  transportMethods: [TransportMethods]
+  tripById(id: Int!): Trip!
+  trips: [Trip]
+  tripsByUserId(id: Int!): Trip!
+  userById(id: Int!): User
+  users: [User]
+}
+
+type TransportMethods {
+  averageCo2: Decimal
+  id: ID!
+  name: String
+}
+
+type Trip {
+  distance: Decimal
+  endTime: DateTime
+  id: ID!
+  startTime: DateTime
+  totalCo2: Decimal
+  transportMethod: TransportMethods
+  transportMethodId: Int
+  userId: Int
+}
+
+type User {
+  carbonHistroy: [CarbonHistroy]
+  cars: [Car]
+  id: ID!
+  totalFootPrint: Decimal
+  trips: [Trip]
+}
+
+"The `Date` scalar represents an ISO-8601 compliant date type."
+scalar Date
+
+"The `DateTime` scalar represents an ISO-8601 compliant date time type."
+scalar DateTime
+
+"The built-in `Decimal` scalar type."
+scalar Decimal
+
+"The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID."
+scalar ID
+
+"The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1."
+scalar Int
+
+"The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text."
+scalar String
