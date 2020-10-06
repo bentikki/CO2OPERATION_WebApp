@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { first, map } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 import { Trip } from '../../graphql/schema';
 
 import { TripsService } from '../_services/trips.service';
-import { GetUserTripsQuery } from 'src/graphql/schema';
 
 
 

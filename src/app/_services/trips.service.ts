@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-import { Trip } from '../models/trip';
 import { GetUserTripsGQL, GetUserTripsQuery } from 'src/graphql/schema';
 import { map } from 'rxjs/operators';
 import { UserService } from './user.service';
@@ -27,8 +24,6 @@ export class TripsService {
   }
 
   getAll() {
-
     return this.trips;
-    // return this.http.get<Trip[]>('https://api.mocki.io/v1/0087ae02');
   }
 }
