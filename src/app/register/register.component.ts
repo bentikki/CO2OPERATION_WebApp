@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
-import { map } from 'rxjs/operators';
 import { SignupService } from '../_services/signup.service';
 import { ComparePassword } from '../_validators/comparepassword.validator'
-import { ValidateUsername } from '../_validators/uniqueUser.validator'
 
 @Component({
   selector: 'app-register',

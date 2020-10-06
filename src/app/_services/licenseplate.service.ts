@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { LicenseInfo } from '../models/licenseinfo';
 
 @Injectable({

@@ -32,8 +32,8 @@ export class UserService {
   public login(email : string, password : string){
 
     //Url for login authorization. With temp url for testing.
-    // let url = 'https://172.16.21.44/api/UserPortal/login';
-    let url = 'https://localhost:44324/api/UserPortal/login';
+    let url = 'https://172.16.21.44/api/UserPortal/login';
+    // let url = 'https://localhost:44324/api/UserPortal/login';
     
     url += '?username=' + email;
     url += '&password=' + password;
