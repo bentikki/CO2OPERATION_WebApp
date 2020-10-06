@@ -1,5 +1,5 @@
    query GetUserTrips($userId: Int!) {
-        userById(id: 1){
+        userById(id: $userId){
            id
            cars{
              id
@@ -8,7 +8,10 @@
            trips{
              id
              transportMethodId
+             totalCo2
              distance
+             startTime
+             endTime
            }
          }
     }

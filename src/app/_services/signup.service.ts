@@ -74,7 +74,8 @@ export class SignupService {
   private createSignup(){
 
     // Create user api call
-    let url = 'https://172.16.21.44/api/UserPortal/CreateUser/';
+    // let url = 'https://172.16.21.44/api/UserPortal/CreateUser/';
+    let url = 'https://localhost:44324/api/UserPortal/CreateUser/';
 
 
     url += '?username=' + this._signUpModel.email;

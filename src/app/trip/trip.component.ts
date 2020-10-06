@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Trip } from '../models/trip';
 import { Subscription } from 'rxjs';
+import { Trip } from '../../graphql/schema';
 import { GetUserTripsGQL,  GetUserTripsQuery} from '../../graphql/schema';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -31,8 +31,6 @@ export class TripComponent implements OnInit {
   
   trips: Observable<GetUserTripsQuery['userById']>;
   @Input() trip : Trip;
-
-  private querySub: Subscription;
   
   user: userProps;
   cars: {
@@ -46,9 +44,9 @@ export class TripComponent implements OnInit {
   }
 
   constructor(tripsGQL: GetUserTripsGQL) {
-    this.trips = tripsGQL.watch({userId: 1}).valueChanges.pipe(map(result => result.data.userById? result.data.userById : undefined));
-      console.log(this.trips);
+
    }
+
   ngOnInit(): void {
     
   }

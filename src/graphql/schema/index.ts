@@ -134,14 +134,14 @@ export type GetUserTripsQuery = (
       & Pick<Car, 'id' | 'model'>
     )>>>, trips?: Maybe<Array<Maybe<(
       { __typename?: 'Trip' }
-      & Pick<Trip, 'id' | 'transportMethodId' | 'distance'>
+      & Pick<Trip, 'id' | 'transportMethodId' | 'totalCo2' | 'distance' | 'startTime' | 'endTime'>
     )>>> }
   )> }
 );
 
 export const GetUserTripsDocument = gql`
     query GetUserTrips($userId: Int!) {
-  userById(id: 1) {
+  userById(id: $userId) {
     id
     cars {
       id
@@ -150,7 +150,10 @@ export const GetUserTripsDocument = gql`
     trips {
       id
       transportMethodId
+      totalCo2
       distance
+      startTime
+      endTime
     }
   }
 }

@@ -4,10 +4,10 @@
     </div>
     <div class="col-7 info">
         <div class="distance">
-            {{trips.trip.distance}} km
+            {{trip.distance}} km
         </div>
         <div class="time">
-            Kl: 6.44 - 7.21
+            Kl: {{trip.startTime |  date:'hh:mm' }} - {{trip.endTime | date:'hh:mm' }}
         </div>
     </div>
     <div class="col-3 carbon">

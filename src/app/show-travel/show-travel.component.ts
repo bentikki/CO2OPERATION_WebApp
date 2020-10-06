@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { first } from 'rxjs/operators';
-import { Trip } from '../models/trip';
+import { first, map } from 'rxjs/operators';
+import { Trip } from '../../graphql/schema';
 
 import { TripsService } from '../_services/trips.service';
+import { GetUserTripsQuery } from 'src/graphql/schema';
+
 
 
 @Component({
@@ -12,7 +14,7 @@ import { TripsService } from '../_services/trips.service';
 })
 export class ShowTravelComponent implements OnInit {
 
-  public Trips : Trip[] = [];
+  public Trips: Trip[] = [] ;
 
   constructor(
     private tripsService : TripsService) 
@@ -23,7 +25,7 @@ export class ShowTravelComponent implements OnInit {
 
     this.tripsService.getAll()
       .pipe(first())
-      .subscribe(trips => this.Trips = trips);
+      .subscribe(trips => this.Trips = trips.trips);
 
   }
 
